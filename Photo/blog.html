@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio - Blog</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="static/css/daisyui.css">
+    <script src="static/js/tailwind-browser.js"></script>
+</head>
+<body style="background: linear-gradient(180deg, #2d2d2d 0%, #313131 100%);">
+    <header class="header">
+        <img src="static/images/logo.png" alt="Garv Chaplot Photography" class="logo">
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        <nav class="navigation">
+          <a href="index.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="blog.html" class="active">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="blog-container">
+        <h1 class="blog-heading">Photography Blog</h1>
+        
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32" alt="Camera gear on desk" class="blog-card-image">
+            <div class="blog-card-content">
+                <h2 class="blog-card-title">Essential Camera Gear for Wildlife Photography</h2>
+                <p class="blog-card-date">June 15, 2023</p>
+                <p class="blog-card-excerpt">Wildlife photography requires specialized equipment to capture those perfect moments in nature. From telephoto lenses to stable tripods, I'll share my recommendations for the essential gear that every wildlife photographer should consider investing in. Based on years of field experience, these tools have proven invaluable for capturing stunning wildlife images in various conditions.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+        
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1506812574058-fc75fa93fead" alt="Sunset landscape" class="blog-card-image">
+            <div class="blog-card-content">
+                <h2 class="blog-card-title">Mastering Golden Hour Photography</h2>
+                <p class="blog-card-date">May 28, 2023</p>
+                <p class="blog-card-excerpt">The golden hour, that magical time shortly after sunrise or before sunset, offers photographers some of the most beautiful natural lighting conditions. In this blog post, I explore techniques for making the most of this brief window of opportunity, including planning tips, camera settings, and composition strategies that will elevate your golden hour shots.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+        
+        <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1556103255-4443dbae8e5a" alt="Person editing photos" class="blog-card-image">
+            <div class="blog-card-content">
+                <h2 class="blog-card-title">Post-Processing Workflow for Landscape Photography</h2>
+                <p class="blog-card-date">April 10, 2023</p>
+                <p class="blog-card-excerpt">Capturing a great landscape photo is only half the journey. The post-processing workflow can transform a good image into a spectacular one. In this detailed guide, I walk through my step-by-step process for editing landscape photos, from basic adjustments to advanced techniques for bringing out detail and enhancing the mood of your scenes.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+</body>
+
+<script>
+      // Hamburger menu functionality
+      const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.navigation');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navigation.classList.toggle('active');
+    });
+
+    // Handle resize events to ensure responsive behavior
+    window.addEventListener('resize', function() {
+      // Reset hamburger menu when screen size changes
+      if (window.innerWidth > 720) {
+        menuToggle.classList.remove('active');
+        navigation.classList.remove('active');
+      }
+    });
+</script>
+</html> 

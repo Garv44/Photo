@@ -1,0 +1,62 @@
+.gallery-view-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.gallery-title {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    color: #ffffff;
+}
+
+.close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.bento-item {
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.bento-item:hover img {
+    transform: scale(1.05);
+}

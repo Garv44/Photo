@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery View</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/css/view-gallery.css">
+</head>
+<body>
+    <div class="gallery-view-container">
+        <div class="gallery-view-header">
+            <h1 class="gallery-title"></h1>
+            <button class="close-btn" onclick="window.close()">✕</button>
+        </div>
+        <div class="bento-grid">
+            <!-- Example grid items - you can add more as needed -->
+            <div class="bento-item"><img src="static/images/c1.png" alt="Gallery Image"></div>
+            <div class="bento-item"><img src="static/images/c4.png" alt="Gallery Image"></div>
+            <div class="bento-item"><img src="static/images/c4.png" alt="Gallery Image"></div>
+            <div class="bento-item"><img src="static/images/c1.png" alt="Gallery Image"></div>
+            <div class="bento-item"><img src="static/images/c4.png" alt="Gallery Image"></div>
+            <div class="bento-item"><img src="static/images/c4.png" alt="Gallery Image"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get the category title from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryTitle = urlParams.get('category');
+        document.querySelector('.gallery-title').textContent = categoryTitle;
+    </script>
+</body>
+</html>

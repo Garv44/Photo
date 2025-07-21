@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(180deg, #2d2d2d 0%, #313131 100%);
+    height: 300vh;
+    overflow-x: hidden;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .logo {
+    width: 200px;
+    height: 110px;
+  }
+
+  .navigation a {
+    font-size: 1.1em;
+    color: #d9d9d9;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.3s;
+  }
+
+  .navigation a:hover {
+    color: #FF6B00;
+  }
+
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .title {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 300px;
+  }
+
+  .title h1 {
+    font-size: 4em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .title p {
+    font-size: 1.2em;
+    color: #444;
+    margin-bottom: 30px;
+  }
+
+  .title .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #FF6B00;
+    color: #fff;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  .title .btn:hover {
+    background: #E55E00;
+  }
+
+  .camera-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+ 
+  .camera {
+    width: 300px;
+    height: 300px;
+    transition: transform 0.5s ease-out;
+  }
+ 
+  .camera-body {
+    width: 100%;
+    height: 100%;
+    background-color: #D3D3D3;  /* Already light grey */
+    border-radius: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+ 
+  .camera-lens {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(145deg, #808080, #404040);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out;
+  }
+ 
+  .camera-lens::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(135deg, #404040, #808080);  /* Already grey gradient */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+ 
+  .lens-ring {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 10px solid #A9A9A9;  /* Already medium grey */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+  }
+ 
+  .camera-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #333;  /* Already dark grey */
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+  }
+ 
+  .camera-flash {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: #fff;  /* Already white */
+    border-radius: 5px;
+    top: 20px;
+    left: 20px;
+  }
+ 
+  .clouds {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+  }
+ 
+  .cloud {
+    position: absolute;
+    background: #fff; /* Already white */
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+ 
+  #cloud1 {
+    width: 100px;
+    height: 60px;
+    left: 20%;
+    top: 20%;
+  }
+ 
+  #cloud2 {
+    width: 150px;
+    height: 90px;
+    right: 15%;
+    top: 15%;
+  }
+ 
+  #cloud3 {
+    width: 80px;
+    height: 50px;
+    left: 30%;
+    bottom: 25%;
+  }
+ 
+  #cloud4 {
+    width: 120px;
+    height: 70px;
+    right: 25%;
+    bottom: 30%;
+  }
+ 
+  .orange-ball { /* Renamed class conceptually, though kept the name for simplicity */
+    position: absolute;
+    background-color: #d9d9d9; /* Changed from #FF6B00 (orange) to grey */
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+ 
+  #ball1 {
+    width: 80px;
+    height: 80px;
+    left: 25%;
+    top: 40%;
+  }
+ 
+  #ball2 {
+    width: 60px;
+    height: 60px;
+    right: 20%;
+    top: 60%;
+  }
+ 
+  #ball3 {
+    width: 40px;
+    height: 40px;
+    left: 15%;
+    bottom: 20%;
+  }
+ 
+  #ball4 {
+    width: 100px;
+    height: 100px;
+    right: 30%;
+    bottom: 10%;
+  }
+  
+  .zoom-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9); /* Already semi-transparent black */
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+  }
+  
+  .zoom-text {
+    color: #fff; /* Already white */
+    font-size: 2em;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 20px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+    
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 0;
+    }
+    
+    .navigation {
+      width: auto;
+    }
+    
+    .camera {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .camera-lens {
+      width: 100px;
+      height: 100px;
+      transition: transform 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+    }
+    
+    .lens-ring {
+      width: 120px;
+      height: 120px;
+      transition: width 0.2s ease-out, height 0.2s ease-out;
+    }
+    
+    /* Scroll animation adjustments for responsive design */
+    .scrolled .camera-lens {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .scrolled .lens-ring {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .cloud, .orange-ball {
+      transform: scale(0.5);
+    }
+    
+    .zoom-text {
+      font-size: 1.5em;
+      padding: 0 15px;
+    }
+    
+    .zoom-text h2 {
+      font-size: 1.2em;
+    }
+    
+    .zoom-text p {
+      font-size: 0.8em;
+    }
+  }
+  
+  /* Small screens */
+  @media screen and (max-width: 480px) {
+    .logo {
+      width: 120px;
+    }
+    
+    .navigation a {
+      margin: 0 5px;
+      font-size: 0.8em;
+    }
+    
+    .camera {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .camera-lens {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .lens-ring {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .camera-button, .camera-flash {
+      transform: scale(0.8);
+    }
+    
+    /* Adjust cloud and ball sizes */
+    .cloud, .orange-ball {
+      transform: scale(0.5);
+    }
+    
+    .zoom-text {
+      font-size: 1.2em;
+    }
+    
+    .zoom-text h2 {
+      font-size: 1em;
+    }
+    
+    .zoom-text p {
+      font-size: 0.7em;
+    }
+  }
+
+ /* Make the menu more touch-friendly */
+ @media (hover: none) {
+  .navigation a {
+    padding: 8px 12px;
+  }
+}
+
+/* Add hamburger menu for very small screens */
+@media screen and (max-width: 360px) {
+  .navigation {
+    flex-wrap: wrap;
+  }
+  
+  .navigation a {
+    margin: 5px;
+  }
+}
+
+/* Hamburger Menu for Medium Screens */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #d9d9d9;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 720px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: #2d2d2d;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    padding: 50px 0;
+    z-index: 1000;
+  }
+  
+  .navigation.active {
+    right: 0;
+  }
+  
+  .navigation a {
+    margin: 15px 0;
+    font-size: 1.2em;
+    display: block;
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+/* Medium screens - now includes hamburger menu */
+@media screen and (max-width: 720px) {
+  .header {
+    padding: 10px 15px;
+  }
+  
+  .logo {
+    width: 130px;
+    z-index: 1001;
+  }
+  
+  .camera {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .camera-lens {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .lens-ring {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .scrolled .camera-lens {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .scrolled .lens-ring {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .zoom-text {
+    font-size: 1.3em;
+  }
+}
+
+ 

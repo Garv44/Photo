@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio - Gallery</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+      <main>
+        <header class="header">
+            <img src="static/images/logo.png" alt="Garv Chaplot Photography" class="logo">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <nav class="navigation">
+              <a href="index.html">Home</a>
+              <a href="gallery.html" class="active">Gallery</a>
+              <a href="blog.html">Blog</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+          </header>
+        <!-- Hero image section (half page) -->
+        <section class="gallery-hero">
+            <div class="hero-image">
+                <img src="static/images/b1.jpg" alt="Featured Gallery Image">
+            </div>
+        </section>
+
+        <!-- Gallery grid section -->
+        <section class="gallery-grid-container">
+            <h2>Photo Collections</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c1.png" alt="Nature Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Wildlife Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c2.png" alt="Portrait Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Landscape Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c3.png" alt="Urban Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Night Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c4.png" alt="Travel Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Events Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+            </div>
+            &nbsp;
+            <br>
+            <br>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c5.png" alt="Nature Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Product Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c6.png" alt="Portrait Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Food Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c7.png" alt="Urban Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Architectural Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c8.png" alt="Travel Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Portrait Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+            </div>
+            &nbsp;
+            <br>
+            <br>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c9.png" alt="Nature Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Wedding Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c10.png" alt="Portrait Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Nature Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <!-- <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c7.png" alt="Urban Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Portrait Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="static/images/c4.png" alt="Travel Photography">
+                    </div>
+                    <div class="card-footer">
+                        <h3>Wedding Photography</h3>
+                        <button class="view-btn" onclick="openGalleryView(this)">View</button>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+<div>
+
+</div>
+    <footer>
+        <p class="foot">&copy; 2025 Garv Chaplot. All rights reserved.</p>
+    </footer>
+    
+</body>
+<script>
+    function openGalleryView(button) {
+        const categoryTitle = button.parentElement.querySelector('h3').textContent;
+        window.open(`view-gallery.html?category=${encodeURIComponent(categoryTitle)}`, '_blank');
+    }
+
+    // Hamburger menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.navigation');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navigation.classList.toggle('active');
+    });
+
+    // Handle resize events to ensure responsive behavior
+    window.addEventListener('resize', function() {
+      // Reset hamburger menu when screen size changes
+      if (window.innerWidth > 720) {
+        menuToggle.classList.remove('active');
+        navigation.classList.remove('active');
+      }
+    });
+</script>
+</html> 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garv Chaplot</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="static/images/logo.png" alt="Garv Chaplot Photography" class="logo">
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="title">
+      <!-- <h1>Unleashing the Photographer's Passion</h1> -->
+      
+    </div>
+  </section>
+
+  <div class="camera-container">
+    <div class="camera">
+      <div class="camera-body">
+        <div class="camera-lens"></div>
+        <div class="lens-ring"></div>
+        <div class="camera-button"></div>
+        <div class="camera-flash"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clouds">
+    <div class="cloud" id="cloud1"></div>
+    <div class="cloud" id="cloud2"></div>
+    <div class="cloud" id="cloud3"></div>
+    <div class="cloud" id="cloud4"></div>
+  </div>
+
+  <div class="orange-balls">
+    <div class="orange-ball" id="ball1"></div>
+    <div class="orange-ball" id="ball2"></div>
+    <div class="orange-ball" id="ball3"></div>
+    <div class="orange-ball" id="ball4"></div>
+  </div>
+  
+  <div class="zoom-content">
+    <div class="zoom-text">
+      <h2>The Art of Photography</h2>
+      <p>Photography is not just about taking pictures, it's about capturing moments, emotions, and stories. It's about seeing the world through a different perspective and sharing that vision with others.</p>
+      <p>My passion for photography drives me to explore new horizons, experiment with different techniques, and push the boundaries of what's possible with a camera.</p>
+      <!-- <p>Whether it's the grand landscapes of nature, the intimate moments of human connection, or the abstract beauty of everyday objects, we find inspiration in everything around us. Our photography is a reflection of our passion, our creativity, and our unique perspective on the world.</p> -->
+    </div>
+  </div>
+
+  <script>
+    // Hamburger menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.navigation');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navigation.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', function() {
+      let scrollPosition = window.scrollY;
+      let windowHeight = window.innerHeight;
+      let cameraBody = document.querySelector('.camera-body');
+      let cameraLens = document.querySelector('.camera-lens');
+      let lensRing = document.querySelector('.lens-ring');
+      let title = document.querySelector('.title');
+      let clouds = document.querySelectorAll('.cloud');
+      let balls = document.querySelectorAll('.orange-ball');
+      let zoomContent = document.querySelector('.zoom-content');
+      let zoomText = document.querySelector('.zoom-text');
+      let camera = document.querySelector('.camera');
+      
+      // Add/remove scrolled class for responsive animations
+      if (scrollPosition > 100) {
+        camera.classList.add('scrolled');
+      } else {
+        camera.classList.remove('scrolled');
+      }
+      
+      // Parallax for camera
+      let cameraScale = 1 + (scrollPosition * 0.001);
+      let rotateY = scrollPosition * 0.05;
+      let rotateX = scrollPosition * 0.03;
+      
+      cameraBody.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${-rotateX}deg) scale(${cameraScale})`;
+      
+      // Title fade out
+      title.style.opacity = 1 - (scrollPosition / 300);
+      title.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+      
+      // Lens zoom effect - improved for smoother animations when scrolling back
+      if (scrollPosition > windowHeight * 0.5 && scrollPosition < windowHeight * 1.5) {
+        let zoomFactor = (scrollPosition - windowHeight * 0.5) / (windowHeight);
+        
+        // Make sure we're using smoother transitions for the lens
+        if (window.innerWidth <= 720) {
+          // Smaller lens for mobile
+          let newSize = 90 + (zoomFactor * 400);
+          cameraLens.style.width = `${newSize}px`;
+          cameraLens.style.height = `${newSize}px`;
+          
+          // Adjust lens ring accordingly
+          let ringSize = newSize + 20;
+          lensRing.style.width = `${ringSize}px`;
+          lensRing.style.height = `${ringSize}px`;
+        } else {
+          // Regular size for desktop
+          let newSize = 150 + (zoomFactor * 600);
+          cameraLens.style.width = `${newSize}px`;
+          cameraLens.style.height = `${newSize}px`;
+          
+          // Adjust lens ring accordingly
+          let ringSize = newSize + 20;
+          lensRing.style.width = `${ringSize}px`;
+          lensRing.style.height = `${ringSize}px`;
+        }
+        
+        cameraLens.style.transform = `translate(-50%, -50%) scale(${1 + zoomFactor})`;
+      } else if (scrollPosition <= windowHeight * 0.5) {
+        // Reset to default size when scrolling back to top
+        if (window.innerWidth <= 720) {
+          cameraLens.style.width = '90px';
+          cameraLens.style.height = '90px';
+          lensRing.style.width = '110px';
+          lensRing.style.height = '110px';
+        } else {
+          cameraLens.style.width = '150px';
+          cameraLens.style.height = '150px';
+          lensRing.style.width = '170px';
+          lensRing.style.height = '170px';
+        }
+        cameraLens.style.transform = 'translate(-50%, -50%)';
+      }
+      
+      // Show zoom content
+      if (scrollPosition > windowHeight && scrollPosition < windowHeight * 3) {
+        let opacity = (scrollPosition - windowHeight) / (windowHeight * 0.5);
+        opacity = Math.min(opacity, 1);
+        
+        zoomContent.style.opacity = opacity;
+        zoomContent.style.visibility = 'visible';
+        
+        if (opacity > 0.5) {
+          zoomText.style.transform = 'translateY(0)';
+          zoomText.style.opacity = (opacity - 0.5) * 2;
+        }
+      } else {
+        zoomContent.style.opacity = 0;
+        zoomContent.style.visibility = 'hidden';
+        zoomText.style.transform = 'translateY(50px)';
+        zoomText.style.opacity = 0;
+      }
+      
+      // Parallax for clouds and balls
+      clouds.forEach((cloud, index) => {
+        let speed = 0.1 + (index * 0.05);
+        let yPos = scrollPosition * speed;
+        cloud.style.transform = `translateY(${yPos}px)`;
+      });
+      
+      balls.forEach((ball, index) => {
+        let speed = 0.15 + (index * 0.05);
+        let yPos = scrollPosition * speed;
+        ball.style.transform = `translateY(${yPos}px)`;
+      });
+    });
+
+    // Handle resize events to ensure responsive behavior
+    window.addEventListener('resize', function() {
+      // Reset hamburger menu when screen size changes
+      if (window.innerWidth > 720) {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.navigation');
+        
+        menuToggle.classList.remove('active');
+        navigation.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
